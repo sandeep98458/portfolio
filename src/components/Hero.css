@@ -6,9 +6,9 @@
     position: relative;
     overflow: hidden;
     background:
-        radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.2) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.2) 0%, transparent 40%),
-        radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.1) 0%, transparent 60%);
+        radial-gradient(circle at 10% 20%, rgba(0, 217, 255, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.08) 0%, transparent 60%);
 }
 
 /* Magnifying glass scanning animation */
@@ -19,7 +19,7 @@
     opacity: 0.3;
     animation: scanAcross 12s infinite ease-in-out;
     z-index: 1;
-    filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.5));
+    filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.5));
 }
 
 @keyframes scanAcross {
@@ -152,13 +152,13 @@
 .btn-primary {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
-    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 217, 255, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 12px 32px rgba(139, 92, 246, 0.6);
+    box-shadow: 0 12px 32px rgba(0, 217, 255, 0.6);
     background: linear-gradient(135deg, var(--secondary), var(--primary));
 }
 
@@ -169,16 +169,16 @@
 .btn-outline {
     border: 2px solid var(--primary);
     color: var(--primary);
-    background: rgba(139, 92, 246, 0.05);
+    background: rgba(0, 217, 255, 0.05);
     backdrop-filter: blur(10px);
 }
 
 .btn-outline:hover {
-    background: rgba(139, 92, 246, 0.15);
+    background: rgba(0, 217, 255, 0.1);
     border-color: var(--secondary);
     color: var(--secondary);
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(236, 72, 153, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 217, 255, 0.3);
 }
 
 .hero-visual {
@@ -196,7 +196,7 @@
     animation: morph 8s ease-in-out infinite, rotate 20s linear infinite;
     filter: blur(40px);
     opacity: 0.7;
-    box-shadow: 0 0 80px rgba(139, 92, 246, 0.6);
+    box-shadow: 0 0 80px rgba(0, 217, 255, 0.4);
 }
 
 @keyframes morph {
