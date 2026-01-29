@@ -1,0 +1,108 @@
+.about {
+    padding: 100px 0;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 200px));
+    gap: 0 10px;
+    padding: 0;
+    margin: 20px 0 0 0;
+    overflow: hidden;
+    list-style: none;
+}
+
+.skills-list li {
+    position: relative;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.skills-list li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+.about-image {
+    position: relative;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.image-wrapper::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 2px solid var(--primary);
+    top: 20px;
+    left: 20px;
+    z-index: -1;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.image-wrapper:hover {
+    transform: translate(-3px, -3px);
+}
+
+.image-wrapper:hover::after {
+    transform: translate(6px, 6px);
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-icon {
+    color: var(--primary);
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        margin: 50px auto 0;
+    }
+}

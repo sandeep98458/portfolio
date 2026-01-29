@@ -1,0 +1,92 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem 0;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.header.scrolled {
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.dot {
+    color: var(--primary);
+}
+
+.desktop-nav ul {
+    display: flex;
+    gap: 2rem;
+}
+
+.desktop-nav a {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.desktop-nav a:hover {
+    color: var(--primary);
+}
+
+.mobile-toggle {
+    display: none;
+    color: var(--text-color);
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: var(--card-bg);
+    padding: 6rem 2rem;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.mobile-nav.open {
+    right: 0;
+}
+
+.mobile-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.mobile-nav a {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-toggle {
+        display: block;
+        z-index: 1001;
+    }
+}
