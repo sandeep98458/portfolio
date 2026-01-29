@@ -233,75 +233,77 @@
 .certification-badge {
     position: absolute;
     top: 50%;
-    right: -20px;
+    right: 0;
     transform: translateY(-50%);
     animation: float 6s ease-in-out infinite;
     z-index: 10;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
 }
 
 @keyframes float {
 
     0%,
     100% {
-        transform: translateY(-50%) translateX(0) rotate(0deg);
-    }
-
-    25% {
-        transform: translateY(-55%) translateX(-5px) rotate(2deg);
+        transform: translateY(-50%) rotate(0deg);
     }
 
     50% {
-        transform: translateY(-45%) translateX(0) rotate(0deg);
-    }
-
-    75% {
-        transform: translateY(-55%) translateX(5px) rotate(-2deg);
+        transform: translateY(-55%) rotate(1deg);
     }
 }
 
-.badge-hexagon {
+.badge-hexagon-wrapper {
     position: relative;
-    width: 200px;
-    height: 230px;
-    background: linear-gradient(135deg, #00d9ff 0%, #00b8d4 50%, #008fa3 100%);
+    width: 220px;
+    height: 254px;
+    /* Hexagon aspect ratio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.badge-hexagon-wrapper:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* Outer Border Layer */
+.badge-hexagon-outer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #00d9ff 0%, #ffffff 50%, #00ff88 100%);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    animation: borderRotate 4s linear infinite;
+    z-index: 1;
+}
+
+/* Inner Background Layer */
+.badge-hexagon-inner {
+    position: absolute;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    background: #0a0f1e;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow:
-        0 10px 40px rgba(0, 217, 255, 0.6),
-        0 0 60px rgba(0, 217, 255, 0.4),
-        inset 0 0 30px rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-    animation: badgeGlow 3s ease-in-out infinite;
+    box-shadow: inset 0 0 50px rgba(0, 217, 255, 0.15);
 }
 
-@keyframes badgeGlow {
-
-    0%,
-    100% {
-        box-shadow:
-            0 10px 40px rgba(0, 217, 255, 0.6),
-            0 0 60px rgba(0, 217, 255, 0.4),
-            inset 0 0 30px rgba(255, 255, 255, 0.2);
-        filter: brightness(1);
-    }
-
-    50% {
-        box-shadow:
-            0 15px 50px rgba(0, 217, 255, 0.8),
-            0 0 80px rgba(0, 217, 255, 0.6),
-            inset 0 0 40px rgba(255, 255, 255, 0.3);
-        filter: brightness(1.1);
-    }
-}
-
-.badge-hexagon:hover {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow:
-        0 20px 60px rgba(0, 217, 255, 0.8),
-        0 0 100px rgba(0, 217, 255, 0.6),
-        inset 0 0 40px rgba(255, 255, 255, 0.3);
+/* Glossy Overlay */
+.badge-hexagon-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
+    z-index: 3;
 }
 
 .badge-content {
@@ -310,74 +312,61 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
-    padding: 2rem 1.5rem;
-    z-index: 2;
+    z-index: 10;
+    padding: 20px;
+}
+
+.badge-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 217, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+}
+
+.badge-icon {
+    color: #00d9ff;
+    filter: drop-shadow(0 0 5px rgba(0, 217, 255, 0.8));
 }
 
 .badge-certified {
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 0.5rem;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #00ff88;
+    margin-bottom: 4px;
     text-transform: uppercase;
-    opacity: 0.9;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .badge-title {
-    font-size: 1.6rem;
+    font-size: 22px;
     font-weight: 900;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-    text-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.4),
-        0 0 20px rgba(255, 255, 255, 0.3);
-    animation: titlePulse 2s ease-in-out infinite;
-}
-
-@keyframes titlePulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.05);
-    }
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 6px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(180deg, #ffffff 0%, #b0b8c4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .badge-level {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 3px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #b0b8c4;
     text-transform: uppercase;
-    opacity: 0.85;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-/* Badge shimmer effect */
-.badge-hexagon::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 6px;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    animation: shimmer 3s infinite;
 }
 
-@keyframes shimmer {
-    0% {
-        left: -100%;
-    }
-
-    100% {
-        left: 100%;
-    }
-}
 
 
 @media (max-width: 968px) {
