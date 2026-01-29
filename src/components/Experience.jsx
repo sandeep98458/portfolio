@@ -6,33 +6,43 @@ import './Experience.css';
 const Experience = () => {
     const experiences = [
         {
-            company: 'Company One',
-            role: 'Senior Developer',
-            period: '2023 - Present',
+            company: 'Kutumb',
+            role: 'QA Engineer',
+            period: 'Sep 2025 - Present',
             description: [
-                'Lead development of web applications using React and Node.js.',
-                'Mentored junior developers and conducted code reviews.',
-                'Improved site performance by 20% through optimization.'
+                'Performed mobile application testing on Android and iOS platforms to ensure high-quality releases.',
+                'Executed functional, regression, smoke, sanity, and exploratory testing for mobile features and updates.',
+                'Validated API integrations using Postman and ensured seamless communication between mobile apps and backend services.',
+                'Tested app performance, usability, and compatibility across multiple devices, OS versions, and screen sizes.',
+                'Used tools such as ADB, logcat, Charles Proxy, Firebase, BrowserStack, Postman, and JIRA for debugging and issue tracking.',
+                'Collaborated with developers and product teams to improve app stability and user experience.'
             ]
         },
         {
-            company: 'Company Two',
-            role: 'Full Stack Developer',
-            period: '2021 - 2023',
+            company: 'Moolya Software Testing Pvt Ltd',
+            role: 'QA Engineer',
+            period: 'Mar 2025 - Sep 2025',
             description: [
-                'Built full-stack solutions using MERN stack.',
-                'Collaborated with designers to implement new features.',
-                'Maintained legacy codebases and migrated to modern tech stacks.'
+                'Tested Android, iOS, and Web applications, ensuring quality across multiple platforms.',
+                'Performed functional, regression, exploratory, and usability testing.',
+                'Maintained and updated test suites using TestRail.',
+                'Created mind maps to visualize test coverage and improve test planning.',
+                'Collaborated with cross-functional teams to streamline testing processes.'
             ]
         },
         {
-            company: 'Company Three',
-            role: 'Junior Developer',
-            period: '2019 - 2021',
+            company: 'BANGDB',
+            role: 'QA Engineer',
+            period: 'Apr 2023 - Feb 2025',
             description: [
-                'Assisted in frontend development of client websites.',
-                'Wrote unit tests and fixed bugs.',
-                'Participated in agile development processes.'
+                'Designed and executed manual test cases for web applications, APIs, system testing, and performance testing.',
+                'Implemented end-to-end testing following the STLC process.',
+                'Performed functional, regression, integration, and smoke testing across Web, Android, and iOS.',
+                'Utilized tools such as Charles Proxy, Android Studio, BrowserStack, Xcode, MySQL, Amplitude, Mixpanel, and Firebase.',
+                'Identified, documented, and tracked defects using JIRA.',
+                'Contributed to automation testing using Java and Selenium.',
+                'Worked in Agile/Scrum environments and participated in sprint ceremonies.',
+                'Used Cursor AI tool to assist in test analysis and debugging.'
             ]
         }
     ];

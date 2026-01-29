@@ -19,20 +19,19 @@ const Contact = () => {
                         I'm currently looking for new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
                     </p>
 
-                    <a href="mailto:email@example.com" className="btn btn-primary contact-btn">
+                    <a href="mailto:sandeepbelaki@gmail.com" className="btn btn-primary contact-btn">
                         Say Hello <Mail size={18} />
                     </a>
 
                     <div className="social-links">
-                        <a href="#" aria-label="Github"><Github /></a>
-                        <a href="#" aria-label="Linkedin"><Linkedin /></a>
-                        <a href="#" aria-label="Twitter"><Twitter /></a>
+                        <a href="https://github.com/Belakisandeep" target="_blank" aria-label="Github"><Github /></a>
+                        <a href="mailto:sandeepbelaki@gmail.com" aria-label="Email"><Mail /></a>
                     </div>
                 </motion.div>
 
                 <footer className="footer">
                     <p>
-                        Designed & Built by <span className="highlight">Your Name</span>
+                        Designed & Built by <span className="highlight">Sandeep B Belaki</span>
                     </p>
                 </footer>
             </div>

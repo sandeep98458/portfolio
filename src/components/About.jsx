@@ -29,18 +29,18 @@ const About = () => {
                             Hello! My name is Sandeep B Belaki and I enjoy creating things that live on the internet. My interest in web development started back in 2019 when I decided to try editing custom Tumblr themes — turns out hacking together HTML & CSS was quite fun!
                         </p>
                         <p>
-                            Fast-forward to today, and I've had the privilege of working at an advertising agency, a start-up, a huge corporation, and a student-led design studio. My main focus these days is building accessible, inclusive products and digital experiences at Upstatement for a variety of clients.
+                            Fast-forward to today, and I've built a strong career in Quality Assurance. I specialize in Mobile and Web application testing, with extensive experience in functional, regression, and API testing. I'm passionate about ensuring software quality through rigorous testing methodologies and using modern tools like Cursor AI to enhance efficiency.
                         </p>
                         <p>
                             Here are a few technologies I've been working with recently:
                         </p>
                         <ul className="skills-list">
-                            <li>JavaScript (ES6+)</li>
-                            <li>React</li>
-                            <li>Node.js</li>
-                            <li>TypeScript</li>
-                            <li>Eleventy</li>
-                            <li>WordPress</li>
+                            <li>Java</li>
+                            <li>SQL</li>
+                            <li>Selenium</li>
+                            <li>JIRA</li>
+                            <li>Postman</li>
+                            <li>Charles Proxy</li>
                         </ul>
                     </motion.div>
 

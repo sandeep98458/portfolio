@@ -6,24 +6,24 @@ import './Skills.css';
 const Skills = () => {
     const skillCategories = [
         {
-            title: 'Frontend',
+            title: 'Testing Expertise',
             icon: <Code size={30} />,
-            skills: ['React', 'Vue', 'HTML/CSS', 'TypeScript', 'Tailwind CSS', 'Framer Motion']
+            skills: ['STLC', 'Test Case Design', 'Functional Testing', 'Regression Testing', 'Mobile Testing', 'API Testing', 'UAT', 'E2E Testing']
         },
         {
-            title: 'Backend',
+            title: 'Mobile QA Skills',
             icon: <Server size={30} />,
-            skills: ['Node.js', 'Express', 'Python', 'Java', 'Go', 'GraphQL']
+            skills: ['Android Testing', 'iOS Testing', 'ADB', 'logcat', 'Charles Proxy', 'Firebase', 'Device Compatibility']
         },
         {
-            title: 'Database & Cloud',
+            title: 'Technical Skills',
             icon: <Database size={30} />,
-            skills: ['PostgreSQL', 'MongoDB', 'AWS', 'Firebase', 'Docker', 'Vercel']
+            skills: ['Java', 'SQL', 'HTML', 'CSS', 'API Testing', 'Postman']
         },
         {
-            title: 'Tools & Design',
+            title: 'Tools',
             icon: <PenTool size={30} />,
-            skills: ['Git', 'Figma', 'Adobe XD', 'Jest', 'Webpack', 'CI/CD']
+            skills: ['JIRA', 'TestRail', 'BrowserStack', 'Mixpanel', 'Amplitude', 'Android Studio', 'Xcode', 'MySQL', 'Cursor AI']
         }
     ];
 
