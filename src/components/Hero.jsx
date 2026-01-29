@@ -3,34 +3,10 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
 import './Hero.css';
 
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Download } from 'lucide-react';
-import Bug from './Bug';
-import './Hero.css';
-
 const Hero = () => {
-    const [bugs, setBugs] = useState([]);
-
-    useEffect(() => {
-        // Generate random bugs
-        const newBugs = Array.from({ length: 8 }).map((_, i) => ({
-            id: i,
-            x: `${Math.random() * 90}%`,
-            y: `${Math.random() * 80 + 10}%`,
-            size: Math.random() * 15 + 15,
-            delay: Math.random() * 2,
-        }));
-        setBugs(newBugs);
-    }, []);
-
     return (
         <section id="home" className="hero">
-            <div className="container hero-container" style={{ position: 'relative' }}>
-                {bugs.map((bug) => (
-                    <Bug key={bug.id} {...bug} />
-                ))}
-
+            <div className="container hero-container">
                 <motion.div
                     className="hero-content"
                     initial={{ opacity: 0, y: 20 }}
