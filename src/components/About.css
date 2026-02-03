@@ -4,8 +4,11 @@
 }
 
 .about-content {
-    max-width: 800px;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 60px;
+    align-items: start;
+    width: 100%;
 }
 
 .about-text p {
@@ -96,35 +99,12 @@
     filter: grayscale(0%);
 }
 
-.about-badge {
-    position: absolute;
-    bottom: -15px;
-    left: -15px;
-    background: #0a0f1e;
-    border: 2px solid var(--primary);
-    padding: 8px 16px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
-    z-index: 10;
-}
-
-.about-badge-inner {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--primary);
-    font-family: 'Courier New', monospace;
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-}
-
 @media (max-width: 768px) {
     .about-content {
         grid-template-columns: 1fr;
     }
 
-    .about-image {
+    .about-image-container {
         margin: 50px auto 0;
     }
 

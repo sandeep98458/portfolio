@@ -56,16 +56,6 @@ const About = () => {
                             <div className="about-profile-frame">
                                 <img src={profileImg} alt="Sandeep B Belaki" className="about-profile-img" />
                             </div>
-
-                            {/* Professional Certification Badge */}
-                            <div className="about-badge">
-                                <div className="about-badge-inner">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
-                                    <span>CERTIFIED QA</span>
-                                </div>
-                            </div>
                         </div>
                     </motion.div>
                 </div>
