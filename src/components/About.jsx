@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { User } from 'lucide-react';
+import profileImg from '../assets/profile.jpg';
 import './About.css';
 
 const About = () => {
@@ -52,8 +53,8 @@ const About = () => {
                         transition={{ duration: 0.5, delay: 0.4 }}
                     >
                         <div className="image-wrapper">
-                            <div className="placeholder-img">
-                                <User size={64} className="placeholder-icon" />
+                            <div className="about-img-frame">
+                                <img src={profileImg} alt="Sandeep B Belaki" className="about-img" />
                             </div>
                         </div>
                     </motion.div>
