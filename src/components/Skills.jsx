@@ -11,6 +11,11 @@ const Skills = () => {
             skills: ['STLC', 'Test Case Design', 'Functional Testing', 'Regression Testing', 'Mobile Testing', 'API Testing', 'Performance Testing (Basics) ⭐', 'UAT', 'E2E Testing']
         },
         {
+            title: 'Mobile QA Skills',
+            icon: <Server size={30} />,
+            skills: ['Android Testing', 'iOS Testing', 'ADB', 'logcat', 'Charles Proxy', 'Firebase', 'Device Compatibility']
+        },
+        {
             title: 'Programming & APIs',
             icon: <Database size={30} />,
             skills: ['Java', 'SQL', 'MySQL', 'HTML', 'CSS', 'Postman', 'Test Automation (Basics)']
