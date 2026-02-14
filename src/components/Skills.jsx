@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Server, PenTool, Database } from 'lucide-react';
 import './Skills.css';
 
 const Skills = () => {
+    const [selectedSkills, setSelectedSkills] = useState(new Set());
+
+    const toggleSkill = (categoryIndex, skillIndex) => {
+        const skillId = `${categoryIndex}-${skillIndex}`;
+        setSelectedSkills(prev => {
+            const newSet = new Set(prev);
+            if (newSet.has(skillId)) {
+                newSet.delete(skillId);
+            } else {
+                newSet.add(skillId);
+            }
+            return newSet;
+        });
+    };
+
     const skillCategories = [
         {
             title: 'Testing Expertise',
@@ -46,23 +61,33 @@ const Skills = () => {
                 </motion.h2>
 
                 <div className="skills-container">
-                    {skillCategories.map((category, index) => (
+                    {skillCategories.map((category, categoryIndex) => (
                         <motion.div
                             className="skill-card"
-                            key={index}
+                            key={categoryIndex}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
                         >
                             <div className="skill-icon">
                                 {category.icon}
                             </div>
                             <h3 className="skill-title">{category.title}</h3>
                             <ul className="skill-list">
-                                {category.skills.map((skill, i) => (
-                                    <li key={i}>{skill}</li>
-                                ))}
+                                {category.skills.map((skill, skillIndex) => {
+                                    const skillId = `${categoryIndex}-${skillIndex}`;
+                                    const isSelected = selectedSkills.has(skillId);
+                                    return (
+                                        <li
+                                            key={skillIndex}
+                                            className={isSelected ? 'selected' : ''}
+                                            onClick={() => toggleSkill(categoryIndex, skillIndex)}
+                                        >
+                                            {skill}
+                                        </li>
+                                    );
+                                })}
                             </ul>
                         </motion.div>
                     ))}

@@ -142,6 +142,8 @@
 @media (max-width: 768px) {
     .education-table {
         border-radius: 12px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .table-header {
@@ -150,8 +152,8 @@
 
     .table-row {
         grid-template-columns: 1fr;
-        gap: 0.75rem;
-        padding: 1.5rem;
+        gap: 0.5rem;
+        padding: 1.2rem 1rem;
         border-left: 3px solid transparent;
     }
 
@@ -161,15 +163,18 @@
 
     .table-cell {
         display: grid;
-        grid-template-columns: 120px 1fr;
-        gap: 1rem;
+        grid-template-columns: 100px 1fr;
+        gap: 0.75rem;
+        font-size: 0.9rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .table-cell::before {
         content: attr(data-label);
         font-weight: 700;
         color: var(--primary);
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
     }
@@ -200,6 +205,10 @@
 
     .yop-col {
         justify-content: flex-start;
+    }
+
+    .institution-col {
+        font-size: 0.85rem;
     }
 }
 

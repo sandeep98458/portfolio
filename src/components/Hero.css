@@ -17,7 +17,7 @@
     position: absolute;
     width: 100px;
     height: 100px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     animation: floatShape1 15s infinite ease-in-out;
     z-index: 1;
@@ -28,7 +28,7 @@
     position: absolute;
     width: 60px;
     height: 60px;
-    border: 2px solid rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(0, 0, 0, 0.08);
     animation: floatShape2 12s infinite ease-in-out;
     z-index: 1;
 }
@@ -81,11 +81,11 @@
 .greeting {
     display: block;
     font-family: 'Courier New', monospace;
-    color: #ffffff;
+    color: var(--primary);
     font-size: 1.2rem;
     margin-bottom: 1rem;
     font-weight: 600;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 20px var(--primary-glow);
     animation: glow 2s ease-in-out infinite;
 }
 
@@ -181,17 +181,17 @@
 }
 
 .btn-primary {
-    background: #ffffff;
-    color: #000000;
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
-    border: 1px solid #ffffff;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #ffffff;
+    box-shadow: 0 8px 24px var(--primary-glow);
+    border: 1px solid var(--primary);
     font-weight: 700;
 }
 
 .btn-primary:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 12px 32px rgba(255, 255, 255, 0.5);
-    background: #e5e7eb;
+    box-shadow: 0 12px 32px var(--secondary-glow);
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
 }
 
 .btn-primary:active {
@@ -262,7 +262,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #ffffff 0%, #e5e7eb 100%);
+    background: linear-gradient(135deg, #000000 0%, #374151 100%);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     opacity: 0.2;
     animation: dynamicPulse 3s infinite ease-in-out;
