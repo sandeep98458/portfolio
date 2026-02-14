@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './Certificates.css';
 
 // TODO: Add your certificate images here
-// import qspiderCert from '../assets/certificates/qspider.jpg';
-// import jspiderCert from '../assets/certificates/jspider.jpg';
+import qspiderCert from '../assets/certificates/qspider.jpg';
+import jspiderCert from '../assets/certificates/jspider.png';
 
 const Certificates = () => {
     const [selectedCert, setSelectedCert] = useState(null);
@@ -18,7 +18,7 @@ const Certificates = () => {
             description: 'Certified in Manual and Automation Testing',
             topics: ['Manual Testing', 'Selenium Tool', 'Core Java', 'SQL', 'Agile Methodology / Web Security Testing'],
             date: 'February 2023',
-            // image: qspiderCert  // Uncomment when image is added
+            image: qspiderCert
         },
         {
             id: 2,
@@ -27,16 +27,12 @@ const Certificates = () => {
             description: 'Completed Development Course',
             topics: ['Java', 'Web Development', 'SQL'],
             date: 'April 2023',
-            // image: jspiderCert  // Uncomment when image is added
+            image: jspiderCert
         }
     ];
 
     const openCertificate = (cert) => {
-        if (cert.image) {
-            setSelectedCert(cert);
-        } else {
-            alert('Please add the certificate image to:\n/Users/primetrace/portfolio/src/assets/certificates/\n\nThen uncomment the image imports in Certificates.jsx');
-        }
+        setSelectedCert(cert);
     };
 
     const closeCertificate = () => {
