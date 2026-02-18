@@ -78,14 +78,18 @@ const Hero = () => {
                         <div className="badge-hexagon-wrapper">
                             <div className="badge-hexagon-outer"></div>
                             <div className="badge-hexagon-inner">
+                                <div className="badge-decoration-hex-glow"></div>
+                                <div className="badge-decoration-corners">
+                                    <span></span><span></span><span></span><span></span>
+                                </div>
                                 <div className="badge-content">
                                     <span className="badge-icon-wrapper">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="badge-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" className="badge-icon">
                                             <polyline points="20 6 9 17 4 12"></polyline>
                                         </svg>
                                     </span>
                                     <span className="badge-certified">CERTIFIED</span>
-                                    <span className="badge-title">QA Engineer</span>
+                                    <h3 className="badge-title">QA Engineer</h3>
                                     <span className="badge-level">PROFESSIONAL</span>
                                 </div>
                             </div>
