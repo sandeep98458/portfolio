@@ -69,7 +69,7 @@ const Contact = () => {
                     </div>
 
                     <div className="social-links">
-                        <a href="https://github.com/Belakisandeep" target="_blank" rel="noopener noreferrer" aria-label="Github"><Github /></a>
+                        <a href="https://github.com/sandeep-b-belaki" target="_blank" rel="noopener noreferrer" aria-label="Github"><Github /></a>
                         <a href="https://www.linkedin.com/in/sandeep-belaki-490219187/" target="_blank" rel="noopener noreferrer" aria-label="Linkedin"><Linkedin /></a>
                         <a href={`mailto:${email}`} aria-label="Email" target="_blank" rel="noopener noreferrer"><Mail /></a>
                     </div>
