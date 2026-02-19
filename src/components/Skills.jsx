@@ -60,7 +60,7 @@ const Skills = () => {
                     Technical Skills
                 </motion.h2>
 
-                <div className="skills-container">
+                <div className="bento-grid">
                     {skillCategories.map((category, categoryIndex) => (
                         <motion.div
                             className="skill-card"

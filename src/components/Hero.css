@@ -282,23 +282,24 @@
     color: var(--text);
     white-space: nowrap;
     box-shadow: var(--shadow-md);
+    z-index: 10;
 }
 
 .hero-float-card.card-1 {
-    top: 10%;
-    left: -20px;
+    top: 5%;
+    left: -40px;
     animation: floatCard 5s ease-in-out infinite;
 }
 
 .hero-float-card.card-2 {
-    bottom: 20%;
-    right: -30px;
+    bottom: -5%;
+    right: -20px;
     animation: floatCard 6s ease-in-out infinite 1s;
 }
 
 .hero-float-card.card-3 {
-    top: 65%;
-    left: -10px;
+    bottom: -5%;
+    left: -20px;
     animation: floatCard 7s ease-in-out infinite 0.5s;
 }
 
@@ -361,17 +362,18 @@
     }
 
     .hero-float-card.card-1 {
-        left: 0;
-        top: 5%;
+        left: -10px;
+        top: 0%;
     }
 
     .hero-float-card.card-2 {
-        right: 0;
-        bottom: 15%;
+        right: -5px;
+        bottom: -10%;
     }
 
     .hero-float-card.card-3 {
-        display: none;
+        left: -5px;
+        bottom: -10%;
     }
 }
 
