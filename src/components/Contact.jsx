@@ -75,11 +75,6 @@ const Contact = () => {
                     </div>
                 </motion.div>
 
-                <footer className="footer">
-                    <p>
-                        Designed & Built by <span className="highlight">Sandeep B Belaki</span>
-                    </p>
-                </footer>
             </div>
         </section>
     );

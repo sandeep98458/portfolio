@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Eye } from 'lucide-react';
+import { ArrowRight, Eye, FolderOpen } from 'lucide-react';
 import resumeFile from '../assets/Sandeep_B_Belaki_QA.pdf';
 import './Hero.css';
 
@@ -53,11 +53,14 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.6, duration: 0.5 }}
                     >
-                        <a href="#contact" className="btn btn-primary">
+                        <a href="#projects" className="btn btn-primary">
+                            <FolderOpen size={18} /> View Projects
+                        </a>
+                        <a href="#contact" className="btn btn-outline">
                             Contact Me <ArrowRight size={18} />
                         </a>
                         <a href={resumeFile} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
-                            <Eye size={18} /> View Resume
+                            <Eye size={18} /> Resume
                         </a>
                     </motion.div>
                 </motion.div>
