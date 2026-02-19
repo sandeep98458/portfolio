@@ -23,7 +23,7 @@ const Footer = () => {
                 <div className="footer-top">
                     <div className="footer-brand">
                         <a href="#home" className="footer-logo">
-                            QA<span className="footer-logo-dot">.</span>Portfolio
+                            <span className="footer-logo-qa">QA</span><span className="footer-logo-dot">.</span>Portfolio
                         </a>
                         <p className="footer-tagline">
                             Ensuring quality, reliability, and user satisfaction — one release at a time.

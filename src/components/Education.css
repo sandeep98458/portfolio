@@ -1,238 +1,103 @@
 .education {
-    padding: 5rem 0;
-    border-top: 1px solid var(--card-border);
-    position: relative;
+    background: var(--bg);
 }
 
-.section-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
-}
-
-.section-icon {
-    color: var(--primary);
-    filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5));
-}
-
-.section-header h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--text-color) 0%, var(--primary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* Table Layout */
-.education-table {
-    background: rgba(17, 18, 23, 0.8);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-}
-
-.table-header {
+.education-grid {
     display: grid;
-    grid-template-columns: 2fr 1.5fr 3fr 1fr 2.5fr;
-    gap: 1rem;
-    padding: 1.25rem 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-bottom: 2px solid var(--primary);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
 }
 
-.header-cell {
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.table-body {
+.edu-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(16px);
     display: flex;
     flex-direction: column;
+    gap: 0.75rem;
+    position: relative;
+    overflow: hidden;
 }
 
-.table-row {
-    display: grid;
-    grid-template-columns: 2fr 1.5fr 3fr 1fr 2.5fr;
-    gap: 1rem;
-    padding: 1.5rem 1.5rem;
-    border-bottom: 1px solid rgba(31, 41, 55, 0.5);
-    transition: all 0.3s ease;
-    cursor: pointer;
+.edu-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--grad-aurora);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
-.table-row:last-child {
-    border-bottom: none;
+.edu-card:hover::after {
+    opacity: 1;
 }
 
-.table-row:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-left: 3px solid var(--primary);
-    box-shadow: inset 0 0 20px rgba(0, 217, 255, 0.05);
+.edu-card:hover {
+    border-color: var(--border-brand);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-brand);
 }
 
-.table-cell {
-    display: flex;
-    align-items: center;
-    color: var(--text-secondary);
+.edu-icon {
+    font-size: 1.75rem;
+}
+
+.edu-degree {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    line-height: 1.4;
 }
 
-.name-col {
+.edu-stream {
+    font-size: 0.82rem;
+    color: var(--purple);
     font-weight: 600;
-    color: var(--text-color);
 }
 
-.cell-icon {
-    display: flex;
-    align-items: center;
-    margin-right: 0.75rem;
-    color: var(--primary);
-    opacity: 0.8;
-}
-
-.cell-text {
-    flex: 1;
-}
-
-.stream-col {
-    color: var(--secondary);
+.edu-institution {
+    font-size: 0.85rem;
+    color: var(--text-2);
     font-weight: 500;
 }
 
-.institution-col {
-    color: var(--text-secondary);
+.edu-meta {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.25rem;
 }
 
-.yop-col {
-    font-weight: 600;
-    color: var(--accent);
-    justify-content: center;
+.edu-year-badge,
+.edu-board-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
 }
 
-.board-col {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
+.edu-year-badge {
+    background: var(--tag-bg);
+    color: var(--indigo) !important;
+    border: 1px solid var(--tag-border);
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-
-    .table-header,
-    .table-row {
-        grid-template-columns: 1.5fr 1fr 2.5fr 0.8fr 2fr;
-        gap: 0.75rem;
-        padding: 1.25rem 1rem;
-    }
-
-    .header-cell,
-    .table-cell {
-        font-size: 0.85rem;
-    }
+.edu-board-badge {
+    background: rgba(168, 85, 247, 0.1);
+    color: var(--purple) !important;
+    border: 1px solid rgba(168, 85, 247, 0.25);
 }
 
-@media (max-width: 768px) {
-    .education-table {
-        border-radius: 12px;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .table-header {
-        display: none;
-    }
-
-    .table-row {
+@media (max-width: 900px) {
+    .education-grid {
         grid-template-columns: 1fr;
-        gap: 0.5rem;
-        padding: 1.2rem 1rem;
-        border-left: 3px solid transparent;
-    }
-
-    .table-row:hover {
-        border-left-color: var(--primary);
-    }
-
-    .table-cell {
-        display: grid;
-        grid-template-columns: 100px 1fr;
-        gap: 0.75rem;
-        font-size: 0.9rem;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-
-    .table-cell::before {
-        content: attr(data-label);
-        font-weight: 700;
-        color: var(--primary);
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .name-col::before {
-        content: 'Name';
-    }
-
-    .stream-col::before {
-        content: 'Stream';
-    }
-
-    .institution-col::before {
-        content: 'College/School';
-    }
-
-    .yop-col::before {
-        content: 'YOP';
-    }
-
-    .board-col::before {
-        content: 'Board';
-    }
-
-    .cell-icon {
-        display: none;
-    }
-
-    .yop-col {
-        justify-content: flex-start;
-    }
-
-    .institution-col {
-        font-size: 0.85rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .education {
-        padding: 3.5rem 0;
-    }
-
-    .section-header {
-        margin-bottom: 2rem;
-    }
-
-    .section-header h2 {
-        font-size: 1.8rem;
-    }
-
-    .table-row {
-        padding: 1.25rem 1rem;
-    }
-
-    .table-cell {
-        grid-template-columns: 90px 1fr;
-        gap: 0.75rem;
-        font-size: 0.85rem;
     }
 }

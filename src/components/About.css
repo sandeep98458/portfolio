@@ -1,135 +1,115 @@
 .about {
-    padding: 80px 0;
-    position: relative;
+    background: var(--bg);
 }
 
-.about-content {
+.about-grid {
     display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 60px;
-    align-items: start;
-    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
 }
 
-.about-text p {
-    margin-bottom: 25px;
-    color: var(--text-secondary);
-    font-size: 1.2rem;
-    line-height: 1.8;
-}
-
-.skills-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 15px;
-    margin-top: 30px;
-    list-style: none;
-    padding: 0;
-}
-
-.skills-list li {
-    position: relative;
-    padding: 12px 18px 12px 35px;
-    font-family: 'Courier New', monospace;
-    font-size: 0.95rem;
-    color: var(--text-color);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-}
-
-.skills-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-color);
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-.skills-list li:hover {
-    background: rgba(0, 217, 255, 0.1);
-    border-color: var(--primary);
-    transform: translateX(5px);
-    box-shadow: 0 4px 16px var(--primary-glow);
-}
-
-/* New About Image Styling */
+/* Image side */
 .about-image-container {
-    position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .about-profile-wrapper {
     position: relative;
-    width: 300px;
 }
 
 .about-profile-frame {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 12px;
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
     overflow: hidden;
-    border: 3px solid var(--primary);
-    box-shadow: 10px 10px 0px var(--primary-glow);
-    transition: all 0.3s ease;
-    background: #111;
-}
-
-.about-profile-frame:hover {
-    transform: translate(-5px, -5px);
-    box-shadow: 15px 15px 0px rgba(0, 217, 255, 0.2);
+    border: 2px solid var(--border-brand);
+    box-shadow: 0 20px 60px var(--glow-indigo);
+    position: relative;
 }
 
 .about-profile-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(100%);
-    transition: filter 0.5s ease;
 }
 
-.about-profile-frame:hover .about-profile-img {
-    filter: grayscale(0%);
+/* Glow orb behind image */
+.about-profile-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(ellipse, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.1), transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+/* Text side */
+.about-text h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+}
+
+.about-text p {
+    color: var(--text-2);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.about-text p:last-of-type {
+    margin-bottom: 0;
+}
+
+.skills-list-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-3);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skills-list li {
+    padding: 6px 14px;
+    border-radius: 50px;
+    background: var(--tag-bg);
+    color: var(--tag-text) !important;
+    border: 1px solid var(--tag-border);
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.skills-list li:hover {
+    background: var(--surface-hover);
+    border-color: var(--indigo);
 }
 
 @media (max-width: 768px) {
-    .about {
-        padding: 60px 0;
-    }
-
-    .about-content {
+    .about-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .about-text p {
-        font-size: 1rem;
-        margin-bottom: 20px;
+        gap: 2.5rem;
     }
 
     .about-image-container {
-        margin: 30px auto 0;
+        order: -1;
     }
 
-    .about-profile-wrapper {
-        width: 250px;
-    }
-
-    .skills-list {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .skills-list li {
-        font-size: 0.9rem;
-        padding: 10px 16px 10px 32px;
+    .about-profile-frame {
+        width: 220px;
+        height: 220px;
     }
 }

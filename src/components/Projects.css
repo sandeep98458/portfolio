@@ -1,35 +1,35 @@
 .projects {
-    background: var(--bg-color);
+    background: var(--bg-2, var(--bg));
 }
 
 .projects-subtitle {
     text-align: center;
-    color: var(--text-secondary);
-    font-size: 1.05rem;
-    margin-top: -2rem;
+    color: var(--text-2);
+    font-size: 1rem;
     margin-bottom: 3rem;
-    max-width: 600px;
+    max-width: 560px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
 }
 
 .project-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
     padding: 1.75rem;
     position: relative;
     overflow: hidden;
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(16px);
 }
 
+/* Gradient top bar on hover */
 .project-card::before {
     content: '';
     position: absolute;
@@ -37,94 +37,95 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, transparent, var(--project-color, var(--primary)), transparent);
+    background: var(--grad-aurora);
     opacity: 0;
     transition: opacity 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--card-hover-border);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(var(--primary-glow));
 }
 
 .project-card:hover::before {
     opacity: 1;
 }
 
+.project-card:hover {
+    border-color: var(--border-brand);
+    box-shadow: var(--shadow-brand);
+    transform: translateY(-4px);
+}
+
 .project-glow {
     position: absolute;
     bottom: -60px;
     right: -60px;
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    opacity: 0.04;
-    filter: blur(30px);
+    opacity: 0.06;
+    filter: blur(40px);
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s;
 }
 
 .project-card:hover .project-glow {
-    opacity: 0.1;
+    opacity: 0.15;
 }
 
 .project-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 1rem;
 }
 
 .project-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: var(--tag-bg);
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid currentColor;
-    opacity: 0.9;
+    border: 1px solid var(--border-brand);
+    flex-shrink: 0;
 }
 
 .project-links {
     display: flex;
-    gap: 0.75rem;
+    gap: 0.5rem;
 }
 
 .project-links a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    border: 1px solid var(--card-border);
-    color: var(--text-secondary);
-    transition: all 0.3s ease;
-    background: var(--bg-color);
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    color: var(--text-2) !important;
+    background: var(--surface);
+    transition: all 0.25s ease;
 }
 
 .project-links a:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    box-shadow: 0 0 12px var(--primary-glow);
+    border-color: var(--indigo);
+    color: var(--indigo) !important;
+    box-shadow: 0 0 0 3px var(--glow-indigo);
     transform: translateY(-2px);
 }
 
 .project-title {
-    font-size: 1.05rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
     font-weight: 700;
-    color: var(--text-color);
-    margin-bottom: 0.6rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
     line-height: 1.4;
 }
 
 .project-description {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
+    font-size: 0.875rem;
+    color: var(--text-2);
+    line-height: 1.65;
     margin-bottom: 1rem;
 }
 
@@ -132,61 +133,57 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.65rem;
 }
 
 .strategy-tag {
-    font-size: 0.72rem;
-    font-weight: 600;
-    padding: 4px 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
     border-radius: 20px;
-    background: rgba(0, 217, 255, 0.1);
-    color: var(--primary);
-    border: 1px solid rgba(0, 217, 255, 0.25);
-    letter-spacing: 0.02em;
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--indigo) !important;
+    border: 1px solid rgba(99, 102, 241, 0.25);
 }
 
 .project-tools {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.35rem;
     margin-bottom: 1rem;
 }
 
 .tool-tag {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 500;
     padding: 3px 9px;
     border-radius: 6px;
-    background: var(--bg-secondary, rgba(255, 255, 255, 0.05));
-    color: var(--text-secondary);
-    border: 1px solid var(--card-border);
+    background: var(--surface-2, rgba(255, 255, 255, 0.04));
+    color: var(--text-2) !important;
+    border: 1px solid var(--border);
 }
 
 .expand-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    font-size: 0.82rem;
+    gap: 0.35rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    color: var(--primary);
+    color: var(--indigo) !important;
     background: none;
     border: none;
     cursor: pointer;
     padding: 6px 0;
     transition: all 0.2s ease;
-    margin-bottom: 0;
 }
 
 .expand-btn:hover {
-    opacity: 0.8;
-    transform: translateX(2px);
+    opacity: 0.75;
 }
 
 .project-details {
-    overflow: hidden;
     margin-top: 1rem;
-    border-top: 1px solid var(--card-border);
+    border-top: 1px solid var(--border);
     padding-top: 1rem;
     display: flex;
     flex-direction: column;
@@ -194,24 +191,20 @@
 }
 
 .detail-block h4 {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 700;
-    color: var(--text-color);
+    color: var(--text);
     margin-bottom: 0.3rem;
 }
 
 .detail-block p {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
+    font-size: 0.83rem;
+    color: var(--text-2);
+    line-height: 1.65;
 }
 
 @media (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr;
-    }
-
-    .project-title {
-        font-size: 1rem;
     }
 }

@@ -1,179 +1,139 @@
+.contact {
+    background: var(--bg-2, var(--bg));
+}
+
+.contact-container {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.contact-content {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 3rem;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gradient top strip */
+.contact-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--grad-aurora);
+}
+
+.contact-content .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+}
+
+.contact-text {
+    color: var(--text-2);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+}
+
+.contact-btn {
+    margin-bottom: 1.5rem;
+}
+
 .contact-info-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-    margin: 1rem 0;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
 }
 
 .info-display {
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--surface-2, rgba(255, 255, 255, 0.05));
+    border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 0.5rem 0.5rem 0.5rem 1.2rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    min-width: 280px;
-    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    transition: all 0.25s ease;
 }
 
 .info-display:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--primary);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border-color: var(--border-brand);
 }
 
 .info-link {
-    font-size: 1rem;
-    color: var(--text-color);
-    text-decoration: none;
-    font-family: 'Courier New', monospace;
+    color: var(--text-2) !important;
+    font-size: 0.9rem;
     font-weight: 500;
+    flex: 1;
+}
+
+.info-link:hover {
+    color: var(--indigo) !important;
 }
 
 .copy-btn {
-    background: transparent;
-    border: none;
-    color: var(--text-color);
-    cursor: pointer;
-    margin-left: 1rem;
-    padding: 0.6rem;
-    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    color: var(--text-3);
+    background: var(--surface);
+    cursor: pointer;
     transition: all 0.2s ease;
-    background: rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
 }
 
-.copy-btn:hover {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: #ffffff;
-    transform: scale(1.1);
-}
-
+.copy-btn:hover,
 .copy-btn.copied {
-    background: #00ff88;
-    color: #0a0f1e;
+    border-color: var(--indigo);
+    color: var(--indigo) !important;
+    background: var(--tag-bg);
 }
 
 .copy-feedback {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 700;
-    padding: 0 0.5rem;
-}
-
-.contact {
-    padding: 80px 0 50px;
-    text-align: center;
-}
-
-.contact-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.contact-content {
-    max-width: 600px;
-    margin-bottom: 50px;
-}
-
-.contact-text {
-    color: var(--text-secondary);
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-}
-
-.contact-btn {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: #ffffff;
-    box-shadow: 0 8px 24px var(--primary-glow);
-    border: 1px solid var(--primary);
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.7rem;
-    border-radius: 12px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.contact-btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 12px 32px var(--secondary-glow);
-    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--indigo) !important;
+    white-space: nowrap;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-top: 30px;
+    gap: 0.75rem;
 }
 
 .social-links a {
-    color: var(--text-secondary);
-    transition: transform 0.3s ease, color 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    color: var(--text-2) !important;
+    background: var(--surface);
+    transition: all 0.25s ease;
 }
 
 .social-links a:hover {
-    color: var(--primary);
-    transform: translateY(-5px);
-    background: rgba(0, 217, 255, 0.1);
-    box-shadow: 0 5px 15px var(--primary-glow);
-}
-
-.footer {
-    width: 100%;
-    text-align: center;
-    font-family: monospace;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-}
-
-.highlight {
-    color: var(--primary);
-}
-
-@media (max-width: 768px) {
-    .contact {
-        padding: 60px 0 40px;
-    }
-
-    .contact-text {
-        font-size: 1rem;
-        padding: 0 0.5rem;
-    }
-
-    .info-display {
-        min-width: auto;
-        width: 100%;
-        max-width: 320px;
-    }
-
-    .info-link {
-        font-size: 0.9rem;
-    }
-
-    .social-links {
-        gap: 20px;
-    }
-
-    .social-links a {
-        width: 40px;
-        height: 40px;
-    }
+    border-color: var(--indigo);
+    color: var(--indigo) !important;
+    background: var(--tag-bg);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px var(--glow-indigo);
 }
