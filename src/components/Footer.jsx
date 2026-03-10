@@ -1,16 +1,26 @@
 import React from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { scrollToSection } from '../utils/scrollNav';
 import './Footer.css';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
+
+    const links = [
+        { name: 'About', id: 'about' },
+        { name: 'Experience', id: 'experience' },
+        { name: 'Projects', id: 'projects' },
+        { name: 'Skills', id: 'skills' },
+        { name: 'Blog', id: 'blog' },
+        { name: 'Contact', id: 'contact' },
+    ];
 
     return (
         <footer className="site-footer">
             <div className="container footer-container">
                 <div className="footer-top">
                     <div className="footer-brand">
-                        <a href="#home" className="footer-logo">
+                        <a href="/" className="footer-logo" onClick={(e) => scrollToSection('home', e)}>
                             <span className="footer-logo-qa">QA</span><span className="footer-logo-dot">.</span>Portfolio
                         </a>
                         <p className="footer-tagline">
@@ -19,12 +29,15 @@ const Footer = () => {
                     </div>
 
                     <div className="footer-links-row">
-                        <a href="#about">About</a>
-                        <a href="#experience">Experience</a>
-                        <a href="#projects">Projects</a>
-                        <a href="#skills">Skills</a>
-                        <a href="#blog">Blog</a>
-                        <a href="#contact">Contact</a>
+                        {links.map((link) => (
+                            <a
+                                key={link.id}
+                                href={`/${link.id}`}
+                                onClick={(e) => scrollToSection(link.id, e)}
+                            >
+                                {link.name}
+                            </a>
+                        ))}
                     </div>
 
                     <div className="footer-social">

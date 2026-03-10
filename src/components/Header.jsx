@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
+import { scrollToSection } from '../utils/scrollNav';
 import './Header.css';
 
 const Header = ({ theme, toggleTheme }) => {
@@ -11,7 +12,6 @@ const Header = ({ theme, toggleTheme }) => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
 
-            // Detect active section
             const sections = document.querySelectorAll('section[id]');
             let current = 'home';
             sections.forEach(section => {
@@ -21,9 +21,28 @@ const Header = ({ theme, toggleTheme }) => {
                 }
             });
             setActiveSection(current);
+
+            // Update URL based on current section
+            const path = current === 'home' ? '/' : `/${current}`;
+            if (window.location.pathname !== path) {
+                window.history.replaceState(null, '', path);
+            }
         };
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Handle initial page load — scroll to section based on URL path
+    useEffect(() => {
+        const path = window.location.pathname.replace('/', '');
+        if (path) {
+            setTimeout(() => {
+                const el = document.getElementById(path);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 300);
+        }
     }, []);
 
     useEffect(() => {
@@ -47,19 +66,23 @@ const Header = ({ theme, toggleTheme }) => {
     }, [isMenuOpen]);
 
     const navLinks = [
-        { name: 'About', href: '#about' },
-        { name: 'Experience', href: '#experience' },
-        { name: 'Certifications', href: '#certificates' },
-        { name: 'Projects', href: '#projects' },
-        { name: 'Tools', href: '#tools' },
-        { name: 'Skills', href: '#skills' },
-        { name: 'Contact', href: '#contact' },
+        { name: 'About', id: 'about' },
+        { name: 'Experience', id: 'experience' },
+        { name: 'Projects', id: 'projects' },
+        { name: 'Bug Stories', id: 'bug-stories' },
+        { name: 'Skills', id: 'skills' },
+        { name: 'Blog', id: 'blog' },
+        { name: 'Contact', id: 'contact' },
     ];
 
     return (
         <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
             <div className="container header-container">
-                <a href="#home" className="logo">
+                <a
+                    href="/"
+                    className="logo"
+                    onClick={(e) => scrollToSection('home', e)}
+                >
                     <span className="logo-qa">QA</span><span className="logo-dot">.</span>Portfolio
                 </a>
 
@@ -68,8 +91,9 @@ const Header = ({ theme, toggleTheme }) => {
                         {navLinks.map((link) => (
                             <li key={link.name}>
                                 <a
-                                    href={link.href}
-                                    className={activeSection === link.href.slice(1) ? 'nav-active' : ''}
+                                    href={`/${link.id}`}
+                                    className={activeSection === link.id ? 'nav-active' : ''}
+                                    onClick={(e) => scrollToSection(link.id, e)}
                                 >
                                     {link.name}
                                 </a>
@@ -101,7 +125,10 @@ const Header = ({ theme, toggleTheme }) => {
                     <ul>
                         {navLinks.map((link) => (
                             <li key={link.name}>
-                                <a href={link.href} onClick={() => setIsMenuOpen(false)}>
+                                <a
+                                    href={`/${link.id}`}
+                                    onClick={(e) => { scrollToSection(link.id, e); setIsMenuOpen(false); }}
+                                >
                                     {link.name}
                                 </a>
                             </li>

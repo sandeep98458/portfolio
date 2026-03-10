@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Eye, FolderOpen, CheckCircle2, Terminal, Shield, Smartphone } from 'lucide-react';
+import { scrollToSection } from '../utils/scrollNav';
 import resumeFile from '../assets/Sandeep_B_Belaki_QA.pdf';
 import profileImg from '../assets/profile.jpg';
 import './Hero.css';
@@ -159,10 +160,10 @@ const Hero = () => {
                     </motion.p>
 
                     <motion.div className="hero-ctas" variants={itemVariants}>
-                        <a href="#projects" className="btn btn-primary hero-btn">
-                            <FolderOpen size={17} /> View Case Studies
+                        <a href="/projects" className="btn btn-primary hero-btn" onClick={(e) => scrollToSection('projects', e)}>
+                            <FolderOpen size={17} /> View My Work
                         </a>
-                        <a href="#contact" className="btn btn-outline hero-btn">
+                        <a href="/contact" className="btn btn-outline hero-btn" onClick={(e) => scrollToSection('contact', e)}>
                             Get in Touch <ArrowRight size={17} />
                         </a>
                         <a href={resumeFile} target="_blank" rel="noopener noreferrer" className="btn btn-ghost hero-btn">
