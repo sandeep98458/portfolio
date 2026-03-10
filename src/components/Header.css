@@ -1,3 +1,6 @@
+/* ============================================================
+   HEADER — Minimal with Active Indicator
+   ============================================================ */
 .header {
     position: fixed;
     top: 0;
@@ -13,7 +16,7 @@
     backdrop-filter: blur(24px) saturate(200%);
     -webkit-backdrop-filter: blur(24px) saturate(200%);
     border-bottom: 1px solid var(--border);
-    padding: 0.75rem 0;
+    padding: 0.65rem 0;
     box-shadow: var(--shadow-md);
 }
 
@@ -26,7 +29,7 @@
 /* Logo */
 .logo {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     font-weight: 700;
     letter-spacing: -0.03em;
     transition: all 0.3s ease;
@@ -53,41 +56,47 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: blink 2.5s ease-in-out infinite;
-}
-
-@keyframes blink {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.3;
-    }
 }
 
 /* Desktop Nav */
 .desktop-nav ul {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.15rem;
 }
 
 .desktop-nav a {
-    font-size: 0.875rem;
+    font-size: 0.83rem;
     font-weight: 500;
     color: var(--text-2) !important;
-    padding: 0.5rem 0.85rem;
-    border-radius: 10px;
+    padding: 0.45rem 0.8rem;
+    border-radius: 8px;
     transition: all 0.2s ease;
     display: block;
+    position: relative;
 }
 
 .desktop-nav a:hover {
     color: var(--text) !important;
     background: var(--surface-hover);
+}
+
+/* Active nav link */
+.desktop-nav a.nav-active {
+    color: var(--indigo) !important;
+    background: var(--tag-bg);
+}
+
+.desktop-nav a.nav-active::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 2px;
+    background: var(--indigo);
+    border-radius: 2px;
 }
 
 /* Header Actions */
@@ -139,8 +148,8 @@
     color: var(--indigo);
 }
 
-.theme-toggle>svg,
-.mobile-toggle>svg {
+.theme-toggle > svg,
+.mobile-toggle > svg {
     pointer-events: none;
 }
 

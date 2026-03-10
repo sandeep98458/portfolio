@@ -33,16 +33,17 @@ const Certificates = () => {
     return (
         <section id="certificates" className="section certificates">
             <div className="container">
-                <motion.h2
-                    className="section-title"
+                <motion.div
+                    className="certs-header"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
                 >
-                    Certifications
-                </motion.h2>
-                <p className="section-desc">Professional certifications that validate my expertise.</p>
+                    <span className="section-eyebrow">Credentials</span>
+                    <h2 className="section-title">Certifications</h2>
+                    <p className="section-desc">Professional certifications that validate my expertise.</p>
+                </motion.div>
 
                 <div className="certs-grid">
                     {certificates.map((cert, index) => (
@@ -51,7 +52,7 @@ const Certificates = () => {
                             className="cert-card"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.15, duration: 0.5 }}
+                            transition={{ delay: index * 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                             viewport={{ once: true }}
                             onClick={() => setSelectedCert(cert)}
                         >
@@ -82,7 +83,6 @@ const Certificates = () => {
                 </div>
             </div>
 
-            {/* Certificate Modal */}
             <AnimatePresence>
                 {selectedCert && (
                     <motion.div

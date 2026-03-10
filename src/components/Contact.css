@@ -1,85 +1,90 @@
+/* ============================================================
+   CONTACT — Split Layout
+   ============================================================ */
 .contact {
     background: var(--bg-2, var(--bg));
 }
 
-.contact-container {
-    max-width: 640px;
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 960px;
     margin: 0 auto;
 }
 
-.contact-content {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 3rem;
-    text-align: center;
-    backdrop-filter: blur(20px);
-    position: relative;
-    overflow: hidden;
+/* Left */
+.contact-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-/* Gradient top strip */
-.contact-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--grad-aurora);
-}
-
-.contact-content .section-title {
+.contact-heading {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
     font-weight: 700;
+    color: var(--text);
     letter-spacing: -0.03em;
-    margin-bottom: 0.75rem;
+    line-height: 1.15;
 }
 
 .contact-text {
     color: var(--text-2);
     font-size: 0.95rem;
     line-height: 1.75;
-    margin-bottom: 2rem;
+    max-width: 400px;
 }
 
-.contact-btn {
-    margin-bottom: 1.5rem;
+.contact-cta {
+    width: fit-content;
+    margin-top: 0.5rem;
 }
 
-.contact-info-container {
+/* Right */
+.contact-right {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
+    gap: 1.5rem;
 }
 
-.info-display {
+.contact-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 0.25rem;
+    backdrop-filter: blur(16px);
+}
+
+.contact-row {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background: var(--surface-2, rgba(255, 255, 255, 0.05));
-    border: 1px solid var(--border);
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
     border-radius: 12px;
-    padding: 0.75rem 1.25rem;
-    transition: all 0.25s ease;
+    transition: background 0.2s ease;
 }
 
-.info-display:hover {
-    border-color: var(--border-brand);
+.contact-row:hover {
+    background: var(--surface-hover);
 }
 
-.info-link {
-    color: var(--text-2) !important;
-    font-size: 0.9rem;
-    font-weight: 500;
+.contact-row-icon {
+    color: var(--indigo);
+    flex-shrink: 0;
+}
+
+.contact-link {
     flex: 1;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-2) !important;
+    transition: color 0.2s ease;
 }
 
-.info-link:hover {
-    color: var(--indigo) !important;
+.contact-link:hover {
+    color: var(--text) !important;
 }
 
 .copy-btn {
@@ -104,36 +109,51 @@
     background: var(--tag-bg);
 }
 
-.copy-feedback {
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--indigo) !important;
-    white-space: nowrap;
-}
-
+/* Social Links */
 .social-links {
     display: flex;
-    justify-content: center;
     gap: 0.75rem;
 }
 
-.social-links a {
+.social-link {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
+    gap: 0.5rem;
+    padding: 0.65rem 1.1rem;
     border-radius: 12px;
     border: 1px solid var(--border);
     color: var(--text-2) !important;
     background: var(--surface);
     transition: all 0.25s ease;
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
-.social-links a:hover {
+.social-link:hover {
     border-color: var(--indigo);
     color: var(--indigo) !important;
     background: var(--tag-bg);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px var(--glow-indigo);
+    box-shadow: 0 4px 16px var(--glow-indigo);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+
+    .contact-left {
+        align-items: center;
+    }
+
+    .contact-text {
+        max-width: none;
+    }
+
+    .social-links {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 }

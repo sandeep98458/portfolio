@@ -1,18 +1,20 @@
+/* ============================================================
+   FOOTER — Clean Minimal
+   ============================================================ */
 .site-footer {
     background: var(--bg);
     border-top: 1px solid var(--border);
-    padding: 4rem 0 2rem;
+    padding: 3rem 0 1.5rem;
     position: relative;
 }
 
-/* Aurora line at top of footer */
 .site-footer::before {
     content: '';
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 200px;
+    width: 160px;
     height: 1px;
     background: var(--grad-aurora);
     opacity: 0.5;
@@ -21,26 +23,27 @@
 .footer-container {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 2rem;
 }
 
 .footer-top {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1.4fr;
-    gap: 3rem;
-    align-items: start;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 
 /* Brand */
 .footer-brand {
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
+    gap: 0.5rem;
 }
 
 .footer-logo {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: -0.03em;
     color: var(--text) !important;
@@ -69,24 +72,43 @@
 }
 
 .footer-tagline {
-    font-size: 0.875rem;
-    color: var(--text-2);
-    line-height: 1.65;
-    max-width: 270px;
+    font-size: 0.82rem;
+    color: var(--text-3);
+    line-height: 1.5;
+    max-width: 280px;
 }
 
+/* Links */
+.footer-links-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-links-row a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-2) !important;
+    transition: color 0.2s ease;
+}
+
+.footer-links-row a:hover {
+    color: var(--indigo) !important;
+}
+
+/* Social */
 .footer-social {
     display: flex;
-    gap: 0.6rem;
+    gap: 0.5rem;
 }
 
 .footer-social a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
     border: 1px solid var(--border);
     color: var(--text-2) !important;
     background: var(--surface);
@@ -96,57 +118,7 @@
 .footer-social a:hover {
     border-color: var(--indigo);
     color: var(--indigo) !important;
-    box-shadow: 0 0 0 3px var(--glow-indigo);
     transform: translateY(-2px);
-}
-
-/* Nav */
-.footer-nav-title {
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--text);
-    margin-bottom: 1rem;
-}
-
-.footer-nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-}
-
-.footer-nav a {
-    font-size: 0.875rem;
-    color: var(--text-2) !important;
-    transition: all 0.2s ease;
-    display: inline-block;
-}
-
-.footer-nav a:hover {
-    color: var(--indigo) !important;
-    transform: translateX(4px);
-}
-
-/* Contact Info */
-.footer-contact-items {
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-}
-
-.footer-contact-item {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 0.82rem;
-    color: var(--text-2) !important;
-    transition: all 0.2s ease;
-    word-break: break-all;
-}
-
-.footer-contact-item:hover {
-    color: var(--indigo) !important;
 }
 
 /* Divider */
@@ -166,7 +138,7 @@
 
 .footer-copyright,
 .footer-built {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--text-3);
     display: flex;
     align-items: center;
@@ -177,19 +149,14 @@
     color: #ef4444;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .footer-top {
-        grid-template-columns: 1fr 1fr;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .footer-brand {
-        grid-column: 1 / -1;
-    }
-}
-
-@media (max-width: 600px) {
-    .footer-top {
-        grid-template-columns: 1fr;
+    .footer-links-row {
+        gap: 1rem;
     }
 
     .footer-bottom {

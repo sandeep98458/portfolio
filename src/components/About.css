@@ -1,54 +1,199 @@
+/* ============================================================
+   ABOUT — Split Layout with Profile Photo
+   ============================================================ */
 .about {
     background: var(--bg);
 }
 
-/* Centered text layout (no image) */
-.about-text-centered {
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
+.about-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 4rem;
+    align-items: start;
 }
 
-.about-text-centered p {
-    color: var(--text-2);
-    line-height: 1.8;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
+/* Photo Column */
+.about-photo-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    position: sticky;
+    top: 8rem;
 }
 
-.about-text-centered p:last-of-type {
-    margin-bottom: 0.75rem;
+.about-photo-wrapper {
+    position: relative;
+    width: 260px;
+    height: 320px;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
-.skills-list-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--text-3);
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
+.about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1;
 }
 
-.skills-list {
+.about-photo-border {
+    position: absolute;
+    inset: -2px;
+    border-radius: 22px;
+    background: var(--grad-aurora);
+    z-index: 0;
+    opacity: 0.7;
+}
+
+.about-quick-facts {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     justify-content: center;
 }
 
-.skills-list li {
-    padding: 6px 14px;
+.quick-fact {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 50px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-2);
+    transition: all 0.25s ease;
+}
+
+.quick-fact svg {
+    color: var(--indigo);
+}
+
+.quick-fact:hover {
+    border-color: var(--border-brand);
+    transform: translateY(-2px);
+}
+
+/* Text Column */
+.about-text-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.about-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--indigo);
+    width: fit-content;
+}
+
+.about-eyebrow::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: var(--grad-aurora);
+    border-radius: 2px;
+}
+
+.about-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+}
+
+.about-paragraphs p {
+    color: var(--text-2);
+    line-height: 1.85;
+    font-size: 0.92rem;
+    margin-bottom: 0.75rem;
+}
+
+.about-paragraphs p:last-child {
+    margin-bottom: 0;
+}
+
+/* Tools */
+.about-tools-section {
+    margin-top: 0.25rem;
+}
+
+.tools-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-3);
+    margin-bottom: 0.65rem;
+}
+
+.about-tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.about-tool-tag {
+    padding: 5px 14px;
     border-radius: 50px;
     background: var(--tag-bg);
     color: var(--tag-text) !important;
     border: 1px solid var(--tag-border);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 600;
+    cursor: default;
     transition: all 0.2s ease;
 }
 
-.skills-list li:hover {
+.about-tool-tag:hover {
     background: var(--surface-hover);
     border-color: var(--indigo);
+}
+
+.about-tool-tag.ai-tag {
+    background: rgba(6, 182, 212, 0.1);
+    color: var(--purple) !important;
+    border-color: rgba(6, 182, 212, 0.25);
+}
+
+.about-tool-tag.ai-tag:hover {
+    border-color: var(--purple);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .about-photo-col {
+        position: static;
+    }
+
+    .about-photo-wrapper {
+        width: 200px;
+        height: 250px;
+    }
+
+    .about-text-col {
+        text-align: center;
+        align-items: center;
+    }
+
+    .about-tools-list {
+        justify-content: center;
+    }
 }

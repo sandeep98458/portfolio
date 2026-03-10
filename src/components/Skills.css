@@ -1,88 +1,95 @@
+/* ============================================================
+   SKILLS — Masonry Blocks
+   ============================================================ */
 .skills {
     background: var(--bg);
 }
 
-/* Bento Grid Layout */
-.bento-grid {
+.skills-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.skills-masonry {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
     gap: 1.25rem;
-    margin-top: 2rem;
 }
 
-/* Make first and last card wider */
-.bento-grid .skill-card:nth-child(1) {
+/* Make first block span 2 cols, last block span 2 cols */
+.skills-masonry .skill-block:first-child {
     grid-column: span 2;
 }
 
-.bento-grid .skill-card:nth-child(5) {
+.skills-masonry .skill-block:last-child {
     grid-column: span 2;
 }
 
-.skill-card {
+.skill-block {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 2rem;
+    border-radius: 18px;
+    padding: 1.75rem;
     backdrop-filter: blur(16px);
-    transition: all 0.3s ease;
+    transition: all 0.35s ease;
     position: relative;
     overflow: hidden;
 }
 
-.skill-card::before {
+.skill-block::before {
     content: '';
     position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, var(--card-glow, rgba(99, 102, 241, 0.08)) 0%, transparent 70%);
-    pointer-events: none;
-    transition: opacity 0.3s;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--skill-color, var(--indigo));
     opacity: 0;
+    transition: opacity 0.3s;
 }
 
-.skill-card:hover::before {
+.skill-block:hover::before {
     opacity: 1;
 }
 
-.skill-card:hover {
+.skill-block:hover {
     border-color: var(--border-brand);
-    box-shadow: var(--shadow-brand);
-    transform: translateY(-3px);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(59, 130, 246, 0.1);
 }
 
-.skill-icon-wrap {
-    display: inline-flex;
+.skill-block-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.skill-block-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 46px;
-    height: 46px;
-    border-radius: 14px;
-    background: var(--tag-bg);
-    color: var(--indigo) !important;
-    margin-bottom: 1.1rem;
-    border: 1px solid var(--tag-border);
+    flex-shrink: 0;
 }
 
-.skill-title {
+.skill-block-title {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--text);
-    margin-bottom: 1rem;
     letter-spacing: -0.01em;
 }
 
-.skill-list {
+.skill-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.55rem;
+    gap: 0.5rem;
 }
 
-.skill-list li {
+.skill-tag {
     font-size: 0.78rem;
     font-weight: 600;
     padding: 6px 14px;
@@ -90,36 +97,35 @@
     background: var(--surface-2, rgba(255, 255, 255, 0.05));
     color: var(--text-2) !important;
     border: 1px solid var(--border);
-    cursor: pointer;
+    cursor: default;
     transition: all 0.2s ease;
 }
 
-.skill-list li:hover,
-.skill-list li.selected {
+.skill-tag:hover {
     background: var(--tag-bg);
     color: var(--tag-text) !important;
     border-color: var(--tag-border);
-    transform: scale(1.04);
 }
 
+/* ---- Responsive ---- */
 @media (max-width: 900px) {
-    .bento-grid {
+    .skills-masonry {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .bento-grid .skill-card:nth-child(1),
-    .bento-grid .skill-card:nth-child(5) {
+    .skills-masonry .skill-block:first-child,
+    .skills-masonry .skill-block:last-child {
         grid-column: span 2;
     }
 }
 
 @media (max-width: 600px) {
-    .bento-grid {
+    .skills-masonry {
         grid-template-columns: 1fr;
     }
 
-    .bento-grid .skill-card:nth-child(1),
-    .bento-grid .skill-card:nth-child(5) {
+    .skills-masonry .skill-block:first-child,
+    .skills-masonry .skill-block:last-child {
         grid-column: span 1;
     }
 }

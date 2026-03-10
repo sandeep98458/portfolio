@@ -18,6 +18,7 @@ function App() {
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('portfolio-theme') || 'dark';
   });
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const toggleTheme = () => {
     setTheme(prev => {
@@ -36,20 +37,44 @@ function App() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = totalHeight > 0 ? (window.scrollY / totalHeight) : 0;
+      setScrollProgress(progress);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className={`app ${theme === 'light' ? 'light' : ''}`}>
+      <div
+        className="scroll-progress"
+        style={{ transform: `scaleX(${scrollProgress})` }}
+      />
       <Header theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />
+        <div className="section-separator" />
         <About />
+        <div className="section-separator" />
         <Experience />
+        <div className="section-separator" />
         <Education />
+        <div className="section-separator" />
         <Certificates />
+        <div className="section-separator" />
         <Projects />
+        <div className="section-separator" />
         <Tools />
+        <div className="section-separator" />
         <Skills />
+        <div className="section-separator" />
         <Testimonials />
+        <div className="section-separator" />
         <Blog />
+        <div className="section-separator" />
         <Contact />
       </main>
       <Footer />

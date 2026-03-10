@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase } from 'lucide-react';
+import { Briefcase, ChevronRight } from 'lucide-react';
 import './Experience.css';
 
 const Experience = () => {
@@ -9,6 +9,7 @@ const Experience = () => {
             company: 'Kutumb',
             role: 'QA Engineer',
             period: 'Sep 2025 - Present',
+            type: 'current',
             description: [
                 'Performed mobile application testing on Android and iOS platforms to ensure high-quality releases.',
                 'Executed functional, regression, smoke, sanity, and exploratory testing for mobile features and updates.',
@@ -22,6 +23,7 @@ const Experience = () => {
             company: 'Moolya Software Testing Pvt Ltd',
             role: 'QA Engineer',
             period: 'Mar 2025 - Sep 2025',
+            type: 'past',
             description: [
                 'Tested Android, iOS, and Web applications, ensuring quality across multiple platforms.',
                 'Performed functional, regression, exploratory, and usability testing.',
@@ -34,6 +36,7 @@ const Experience = () => {
             company: 'BANGDB',
             role: 'QA Engineer',
             period: 'Apr 2023 - Feb 2025',
+            type: 'past',
             description: [
                 'Designed and executed manual test cases for web applications, APIs, system testing, and performance testing.',
                 'Implemented end-to-end testing following the STLC process.',
@@ -50,38 +53,51 @@ const Experience = () => {
     return (
         <section id="experience" className="section experience">
             <div className="container">
-                <motion.h2
-                    className="section-title"
+                <motion.div
+                    className="exp-header"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    Work Experience
-                </motion.h2>
+                    <span className="section-eyebrow">Career</span>
+                    <h2 className="section-title" style={{ textAlign: 'left' }}>Work Experience</h2>
+                </motion.div>
 
-                <div className="timeline">
+                <div className="exp-cards">
                     {experiences.map((exp, index) => (
                         <motion.div
-                            className="timeline-item"
+                            className={`exp-card ${exp.type === 'current' ? 'exp-current' : ''}`}
                             key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+                            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                            viewport={{ once: true, margin: '-50px' }}
+                            transition={{ duration: 0.6, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
                         >
-                            <div className="timeline-icon">
-                                <Briefcase size={20} />
+                            <div className="exp-card-top">
+                                <div className="exp-company-badge">
+                                    <div className="exp-company-icon">
+                                        <Briefcase size={18} />
+                                    </div>
+                                    <div className="exp-company-info">
+                                        <h3 className="exp-role">{exp.role}</h3>
+                                        <span className="exp-company-name">{exp.company}</span>
+                                    </div>
+                                </div>
+                                <span className={`exp-period ${exp.type === 'current' ? 'exp-period-active' : ''}`}>
+                                    {exp.type === 'current' && <span className="exp-live-dot"></span>}
+                                    {exp.period}
+                                </span>
                             </div>
-                            <div className="timeline-content">
-                                <span className="period">{exp.period}</span>
-                                <h3 className="role">{exp.role} <span className="company">@ {exp.company}</span></h3>
-                                <ul className="description">
-                                    {exp.description.map((item, i) => (
-                                        <li key={i}>{item}</li>
-                                    ))}
-                                </ul>
-                            </div>
+
+                            <ul className="exp-duties">
+                                {exp.description.map((item, i) => (
+                                    <li key={i}>
+                                        <ChevronRight size={14} className="duty-arrow" />
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
                         </motion.div>
                     ))}
                 </div>

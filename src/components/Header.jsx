@@ -5,16 +5,27 @@ import './Header.css';
 const Header = ({ theme, toggleTheme }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('home');
 
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
+
+            // Detect active section
+            const sections = document.querySelectorAll('section[id]');
+            let current = 'home';
+            sections.forEach(section => {
+                const top = section.offsetTop - 120;
+                if (window.scrollY >= top) {
+                    current = section.getAttribute('id');
+                }
+            });
+            setActiveSection(current);
         };
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Close mobile menu on outside click
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (!e.target.closest) return;
@@ -52,18 +63,21 @@ const Header = ({ theme, toggleTheme }) => {
                     <span className="logo-qa">QA</span><span className="logo-dot">.</span>Portfolio
                 </a>
 
-                {/* Desktop Nav */}
                 <nav className="desktop-nav">
                     <ul>
                         {navLinks.map((link) => (
                             <li key={link.name}>
-                                <a href={link.href}>{link.name}</a>
+                                <a
+                                    href={link.href}
+                                    className={activeSection === link.href.slice(1) ? 'nav-active' : ''}
+                                >
+                                    {link.name}
+                                </a>
                             </li>
                         ))}
                     </ul>
                 </nav>
 
-                {/* Theme Toggle + Mobile Toggle */}
                 <div className="header-actions">
                     <button
                         className="theme-toggle"
@@ -83,7 +97,6 @@ const Header = ({ theme, toggleTheme }) => {
                     </button>
                 </div>
 
-                {/* Mobile Nav */}
                 <div className={`mobile-nav ${isMenuOpen ? 'open' : ''}`}>
                     <ul>
                         {navLinks.map((link) => (

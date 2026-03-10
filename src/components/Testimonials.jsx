@@ -10,7 +10,7 @@ const Testimonials = () => {
             role: 'Co-Founder',
             company: 'BANGDB',
             avatar: 'SS',
-            color: '#00d9ff',
+            color: '#3B82F6',
             rating: 5,
             url: 'https://www.linkedin.com/in/sachinsi/',
             image: 'https://media.licdn.com/dms/image/v2/C4D03AQEWGNO1X3Extg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1598781796474?e=2147483647&v=beta&t=wPXQLqpcRK9JtytuanpXI8ZchqQkwjxmp4skzNrSdXE',
@@ -21,82 +21,83 @@ const Testimonials = () => {
             role: 'Test Manager',
             company: 'Moolya',
             avatar: 'S',
-            color: '#8b5cf6',
+            color: '#06B6D4',
             rating: 5,
             url: 'https://www.linkedin.com/in/swathibharadwaj/',
             image: 'https://media.licdn.com/dms/image/v2/C5603AQG3ignPDvpFcA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1617950163312?e=2147483647&v=beta&t=P3i7RZEsUV9CLV9KUTvO6GSaudqjdYDgDZDK3UroQmg',
-            text: 'Working with Sandeep was a pleasure. He doesn\'t just execute test cases — he thinks deeply about the user journey and asks the right questions during requirement reviews. His API testing skills and ability to use tools like Postman and Charles Proxy made our backend validation process much stronger.'
+            text: "Working with Sandeep was a pleasure. He doesn't just execute test cases \u2014 he thinks deeply about the user journey and asks the right questions during requirement reviews. His API testing skills and ability to use tools like Postman and Charles Proxy made our backend validation process much stronger."
         }
     ];
 
     return (
         <section id="testimonials" className="section testimonials-section">
             <div className="container">
-                <motion.h2
-                    className="section-title"
+                <motion.div
+                    className="testimonials-header"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    Testimonials
-                </motion.h2>
-                <motion.p
-                    className="testimonials-subtitle"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                >
-                    What colleagues and managers say
-                </motion.p>
+                    <span className="section-eyebrow">Reviews</span>
+                    <h2 className="section-title">Testimonials</h2>
+                    <p className="testimonials-subtitle">What colleagues and managers say</p>
+                </motion.div>
 
                 <div className="testimonials-grid">
                     {testimonials.map((t, index) => (
                         <motion.div
                             key={index}
                             className="testimonial-card"
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.12 }}
-                            style={{ '--t-color': t.color }}
+                            viewport={{ once: true, margin: '-60px' }}
+                            transition={{ duration: 0.6, delay: index * 0.2, ease: [0.22, 1, 0.36, 1] }}
                         >
-                            <div className="quote-icon">
-                                <Quote size={22} />
+                            <div className="testimonial-top">
+                                <div className="testimonial-author">
+                                    {t.image ? (
+                                        <img
+                                            src={t.image}
+                                            alt={t.name}
+                                            className="author-avatar"
+                                            style={{ objectFit: 'cover' }}
+                                        />
+                                    ) : (
+                                        <div
+                                            className="author-avatar"
+                                            style={{ background: `linear-gradient(135deg, ${t.color}, ${t.color}88)` }}
+                                        >
+                                            {t.avatar}
+                                        </div>
+                                    )}
+                                    <div className="author-info">
+                                        <a href={t.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                                            <span className="author-name">{t.name}</span>
+                                        </a>
+                                        <span className="author-role">{t.role} · {t.company}</span>
+                                    </div>
+                                </div>
+                                <div className="testimonial-rating">
+                                    {Array.from({ length: t.rating }).map((_, i) => (
+                                        <motion.span
+                                            key={i}
+                                            initial={{ opacity: 0, scale: 0 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: 0.5 + i * 0.08 }}
+                                        >
+                                            <Star size={14} fill="currentColor" />
+                                        </motion.span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="quote-mark">
+                                <Quote size={28} />
                             </div>
 
                             <p className="testimonial-text">{t.text}</p>
-
-                            <div className="testimonial-rating">
-                                {Array.from({ length: t.rating }).map((_, i) => (
-                                    <Star key={i} size={14} fill="currentColor" />
-                                ))}
-                            </div>
-
-                            <div className="testimonial-author">
-                                {t.image ? (
-                                    <img
-                                        src={t.image}
-                                        alt={t.name}
-                                        className="author-avatar"
-                                        style={{ objectFit: 'cover' }}
-                                    />
-                                ) : (
-                                    <div
-                                        className="author-avatar"
-                                        style={{ background: `linear-gradient(135deg, ${t.color}, ${t.color}88)` }}
-                                    >
-                                        {t.avatar}
-                                    </div>
-                                )}
-                                <div className="author-info">
-                                    <a href={t.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-                                        <span className="author-name">{t.name}</span>
-                                    </a>
-                                    <span className="author-role">{t.role} · {t.company}</span>
-                                </div>
-                            </div>
 
                             <div className="testimonial-accent" style={{ background: t.color }}></div>
                         </motion.div>
