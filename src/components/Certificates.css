@@ -51,7 +51,7 @@
 .cert-card:hover {
     border-color: var(--border-brand);
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(59, 130, 246, 0.12);
+    box-shadow: 0 12px 40px rgba(224, 122, 95, 0.1);
 }
 
 .cert-card-header {
@@ -74,9 +74,9 @@
 }
 
 .cert-card:hover .cert-icon-wrap {
-    background: rgba(59, 130, 246, 0.2);
+    background: rgba(224, 122, 95, 0.15);
     border-color: var(--indigo);
-    box-shadow: 0 0 16px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 0 16px rgba(224, 122, 95, 0.15);
 }
 
 .cert-issuer-tag {
@@ -122,9 +122,9 @@
     font-weight: 600;
     padding: 3px 10px;
     border-radius: 20px;
-    background: rgba(6, 182, 212, 0.08);
+    background: rgba(129, 178, 154, 0.08);
     color: var(--purple) !important;
-    border: 1px solid rgba(6, 182, 212, 0.2);
+    border: 1px solid rgba(129, 178, 154, 0.2);
 }
 
 .cert-view-btn {

@@ -55,7 +55,7 @@
 .skill-block:hover {
     border-color: var(--border-brand);
     transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 16px 48px rgba(224, 122, 95, 0.08);
 }
 
 .skill-block-header {

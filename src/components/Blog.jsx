@@ -12,7 +12,7 @@ const Blog = () => {
             excerpt: 'A walkthrough of the test planning process I follow at the start of each sprint \u2014 from risk assessment and coverage mapping to execution tracking in TestRail.',
             readTime: '6 min read',
             date: 'Recent',
-            color: '#3B82F6',
+            color: '#E07A5F',
             comingSoon: false,
             url: 'https://sandeepblog-teal.vercel.app/'
         },
@@ -23,7 +23,7 @@ const Blog = () => {
             excerpt: "Most QA engineers know how to send a request in Postman. But are you using pre-request scripts, dynamic variables, and Newman for CI integration? This article covers it all.",
             readTime: '8 min read',
             date: 'Featured',
-            color: '#06B6D4',
+            color: '#81B29A',
             comingSoon: false,
             url: 'https://postman-blog.vercel.app/blog/postman-beyond-basics'
         },
@@ -34,7 +34,7 @@ const Blog = () => {
             excerpt: 'Exploratory testing is more than ad-hoc clicking. Learn the heuristics, session-based techniques, and mental models I use to find bugs that test cases miss.',
             readTime: '5 min read',
             date: 'Featured',
-            color: '#f59e0b',
+            color: '#F2CC8F',
             comingSoon: false,
             url: 'https://bug-hunt-sandeep.vercel.app/blog/bug-hunters-mindset'
         }

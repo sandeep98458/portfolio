@@ -113,7 +113,7 @@ const Projects = () => {
             results: '95% bug detection rate before production; 40% reduction in post-release critical bugs; improved release confidence with structured sign-off process.',
             github: '#',
             docs: '#',
-            color: '#3B82F6'
+            color: '#E07A5F'
         },
         {
             icon: <Bug size={28} />,
@@ -126,7 +126,7 @@ const Projects = () => {
             results: 'Discovered 15 critical API edge-case bugs; automated regression collection runs in 8 minutes; zero API regressions shipped in final 6 sprints.',
             github: '#',
             docs: '#',
-            color: '#06B6D4'
+            color: '#81B29A'
         },
         {
             icon: <Zap size={28} />,
@@ -139,7 +139,7 @@ const Projects = () => {
             results: 'Identified feed API becoming 4x slower beyond 500 concurrent users; provided data-driven recommendations that led to backend caching optimization; improved P95 latency by 60%.',
             github: '#',
             docs: '#',
-            color: '#f59e0b'
+            color: '#F2CC8F'
         },
         {
             icon: <Code2 size={28} />,
@@ -152,7 +152,7 @@ const Projects = () => {
             results: '35 automated test cases covering login, dashboard, user management, and reporting flows; regression suite runs in 12 minutes vs 2 hours of manual testing; 0 false positives after framework stabilization.',
             github: '#',
             docs: '#',
-            color: '#10b981'
+            color: '#C49A6C'
         },
         {
             icon: <ShieldCheck size={28} />,
@@ -165,7 +165,7 @@ const Projects = () => {
             results: 'Prevented OS-specific crashes from reaching 200K+ affected users; improved crash-free session rate from 97.2% to 99.1%; established reusable compatibility checklist adopted by the team.',
             github: '#',
             docs: '#',
-            color: '#10B981'
+            color: '#81B29A'
         }
     ];
 

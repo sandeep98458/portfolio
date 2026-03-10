@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
@@ -47,7 +47,7 @@ const Footer = () => {
                         &copy; {currentYear} Sandeep B Belaki. All rights reserved.
                     </p>
                     <p className="footer-built">
-                        Built with <Heart size={13} fill="currentColor" className="heart-icon" /> using React & Vite
+                        Designed & built by Sandeep B Belaki
                     </p>
                 </div>
             </div>

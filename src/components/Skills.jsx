@@ -1,39 +1,39 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FlaskConical, Smartphone, Code2, Wrench, Bot } from 'lucide-react';
+import { FlaskConical, Smartphone, Globe, ClipboardList, Wrench } from 'lucide-react';
 import './Skills.css';
 
 const Skills = () => {
     const skillCategories = [
         {
-            title: 'Testing Expertise',
+            title: 'Testing Methodologies',
             icon: <FlaskConical size={22} />,
-            color: '#3B82F6',
-            skills: ['STLC', 'Test Case Design', 'Functional Testing', 'Regression Testing', 'Mobile Testing', 'API Testing', 'Performance Testing (Basics)', 'UAT', 'E2E Testing']
+            color: '#E07A5F',
+            skills: ['STLC', 'Test Case Design', 'Functional Testing', 'Regression Testing', 'Smoke & Sanity Testing', 'Exploratory Testing', 'Integration Testing', 'E2E Testing', 'UAT', 'Risk-based Testing']
         },
         {
-            title: 'Mobile QA Skills',
+            title: 'Mobile QA',
             icon: <Smartphone size={22} />,
-            color: '#06B6D4',
-            skills: ['Android Testing', 'iOS Testing', 'ADB', 'logcat', 'Charles Proxy', 'Firebase', 'Device Compatibility']
+            color: '#81B29A',
+            skills: ['Android Testing', 'iOS Testing', 'ADB & logcat', 'Charles Proxy', 'Device Compatibility', 'Responsive Testing', 'App Performance', 'BrowserStack', 'Android Studio', 'Xcode']
         },
         {
-            title: 'Programming & APIs',
-            icon: <Code2 size={22} />,
-            color: '#10B981',
-            skills: ['Java', 'SQL', 'MySQL', 'HTML', 'CSS', 'Postman', 'Test Automation (Basics)']
+            title: 'API & Performance',
+            icon: <Globe size={22} />,
+            color: '#F2CC8F',
+            skills: ['Postman', 'REST API Testing', 'API Validation', 'Newman (CI)', 'Apache JMeter', 'Performance Testing', 'Load Testing', 'Charles Proxy']
         },
         {
-            title: 'Tools',
+            title: 'Test Management',
+            icon: <ClipboardList size={22} />,
+            color: '#C49A6C',
+            skills: ['JIRA', 'TestRail', 'Bug Reporting', 'Defect Lifecycle', 'Agile / Scrum', 'Sprint Ceremonies', 'Test Planning', 'Mind Maps', 'Test Coverage Analysis']
+        },
+        {
+            title: 'Automation & Data',
             icon: <Wrench size={22} />,
-            color: '#f59e0b',
-            skills: ['JIRA', 'TestRail', 'BrowserStack', 'Mixpanel', 'Amplitude', 'Android Studio', 'Xcode', 'Apache JMeter (Basics)']
-        },
-        {
-            title: 'AI-Assisted Tools',
-            icon: <Bot size={22} />,
-            color: '#8B5CF6',
-            skills: ['Cursor AI', 'Claude', 'DeepSeek', 'OpenAI', 'Antigravity']
+            color: '#B8A9C9',
+            skills: ['Selenium', 'Java', 'SQL / MySQL', 'Git', 'Firebase', 'Amplitude', 'Mixpanel', 'CI/CD Basics']
         }
     ];
 
@@ -48,7 +48,8 @@ const Skills = () => {
                     transition={{ duration: 0.5 }}
                 >
                     <span className="section-eyebrow">Expertise</span>
-                    <h2 className="section-title">Technical Skills</h2>
+                    <h2 className="section-title">QA Skills & Tools</h2>
+                    <p className="section-desc">The methodologies, tools, and platforms I use to deliver quality</p>
                 </motion.div>
 
                 <div className="skills-masonry">

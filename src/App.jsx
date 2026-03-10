@@ -6,9 +6,7 @@ import Experience from './components/Experience';
 import Education from './components/Education';
 import Certificates from './components/Certificates';
 import Projects from './components/Projects';
-import Tools from './components/Tools';
 import Skills from './components/Skills';
-import Testimonials from './components/Testimonials';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -67,11 +65,7 @@ function App() {
         <div className="section-separator" />
         <Projects />
         <div className="section-separator" />
-        <Tools />
-        <div className="section-separator" />
         <Skills />
-        <div className="section-separator" />
-        <Testimonials />
         <div className="section-separator" />
         <Blog />
         <div className="section-separator" />
