@@ -6,6 +6,7 @@ import Experience from './components/Experience';
 import Education from './components/Education';
 import Certificates from './components/Certificates';
 import Projects from './components/Projects';
+import BugStories from './components/BugStories';
 import Skills from './components/Skills';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
@@ -64,6 +65,8 @@ function App() {
         <Certificates />
         <div className="section-separator" />
         <Projects />
+        <div className="section-separator" />
+        <BugStories />
         <div className="section-separator" />
         <Skills />
         <div className="section-separator" />

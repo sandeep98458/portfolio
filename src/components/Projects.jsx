@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, ExternalLink, Bug, ShieldCheck, Zap, Code2, ChevronDown, ChevronUp } from 'lucide-react';
+import { Bug, ShieldCheck, Zap, Globe, Database, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
 import './Projects.css';
 
 const ProjectCard = ({ project, index, isExpanded, onToggle, isFeatured }) => {
@@ -32,14 +32,7 @@ const ProjectCard = ({ project, index, isExpanded, onToggle, isFeatured }) => {
                     <div className="project-icon" style={{ color: project.color, background: `${project.color}18` }}>
                         {project.icon}
                     </div>
-                    <div className="project-links">
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
-                            <Github size={18} />
-                        </a>
-                        <a href={project.docs} target="_blank" rel="noopener noreferrer" aria-label="Documentation" title="Docs">
-                            <ExternalLink size={18} />
-                        </a>
-                    </div>
+                    <span className="project-company-tag">{project.company}</span>
                 </div>
 
                 <h3 className="project-title">{project.title}</h3>
@@ -83,7 +76,7 @@ const ProjectCard = ({ project, index, isExpanded, onToggle, isFeatured }) => {
                                 <p>{project.challenges}</p>
                             </div>
                             <div className="detail-block">
-                                <h4>Solution</h4>
+                                <h4>My Approach</h4>
                                 <p>{project.solution}</p>
                             </div>
                             <div className="detail-block">
@@ -104,68 +97,63 @@ const Projects = () => {
     const projects = [
         {
             icon: <ShieldCheck size={28} />,
-            title: 'E-Commerce Mobile App \u2013 End-to-End QA',
-            description: 'Comprehensive quality assurance for a high-traffic e-commerce mobile application serving 500K+ users across Android and iOS platforms.',
-            strategy: ['Functional Testing', 'Regression Testing', 'Smoke Testing', 'UAT'],
-            tools: ['JIRA', 'Postman', 'BrowserStack', 'Charles Proxy', 'TestRail'],
-            challenges: 'Flaky network conditions causing intermittent failures in checkout flow; device fragmentation across 50+ device/OS combinations.',
-            solution: 'Built a comprehensive device matrix using BrowserStack; created network condition test scenarios using Charles Proxy throttling; developed reproducible regression suite in TestRail.',
-            results: '95% bug detection rate before production; 40% reduction in post-release critical bugs; improved release confidence with structured sign-off process.',
-            github: '#',
-            docs: '#',
+            title: 'Dealsho \u2013 E-Commerce App QA',
+            company: 'Kutumb',
+            description: 'End-to-end QA for a deals and shopping e-commerce app across Android and iOS \u2014 covering product listing, cart, checkout, payments, and push notifications.',
+            strategy: ['Functional Testing', 'Regression Testing', 'Payment Flow Testing', 'UAT'],
+            tools: ['JIRA', 'Postman', 'BrowserStack', 'Charles Proxy', 'ADB'],
+            challenges: 'Complex payment gateway integrations with multiple providers; cart sync issues between app sessions; deep link failures from push notifications to deal pages.',
+            solution: 'Built payment flow test matrix covering all gateway combinations; used Charles Proxy to simulate network failures during checkout; created regression suite for cart persistence across app kills and restarts.',
+            results: 'Caught critical payment double-charge bug before launch; zero checkout-related complaints post-release; stable cart sync across 30+ device configurations.',
             color: '#E07A5F'
         },
         {
-            icon: <Bug size={28} />,
-            title: 'REST API Testing Framework \u2013 BANGDB',
-            description: "Built a structured API testing suite for a NoSQL database product's REST API layer, covering 40+ endpoints with functional and integration coverage.",
-            strategy: ['API Testing', 'Integration Testing', 'Boundary Value Analysis', 'Error Handling'],
-            tools: ['Postman', 'Newman', 'JIRA', 'Git', 'MySQL'],
-            challenges: 'Complex interdependent API flows where auth tokens, pagination states, and database states needed to be orchestrated for valid test scenarios.',
-            solution: 'Created chained Postman collections with environment variables and pre-request scripts to dynamically manage auth, set up test data, and clean up after test runs.',
-            results: 'Discovered 15 critical API edge-case bugs; automated regression collection runs in 8 minutes; zero API regressions shipped in final 6 sprints.',
-            github: '#',
-            docs: '#',
+            icon: <Sparkles size={28} />,
+            title: 'Astro 99 & Tarot 99 \u2013 Astrology Apps QA',
+            company: 'Kutumb',
+            description: 'Quality assurance for two astrology and tarot reading apps \u2014 testing real-time chat with astrologers, in-app purchases, horoscope generation, and tarot card flows.',
+            strategy: ['Functional Testing', 'Exploratory Testing', 'Smoke Testing', 'Compatibility Testing'],
+            tools: ['BrowserStack', 'ADB', 'logcat', 'Firebase', 'JIRA'],
+            challenges: 'Real-time chat had latency spikes on low-bandwidth connections; in-app purchase flows behaved differently across Android versions; tarot card animations caused frame drops on budget devices.',
+            solution: 'Tested real-time chat under throttled network conditions using Charles Proxy; validated IAP flows on 20+ device/OS combinations; profiled animation performance using Android Studio and flagged GPU-heavy renders.',
+            results: 'Improved chat reliability to 99.5% message delivery rate; prevented IAP failures on Android 11/12 budget phones; smooth 60fps tarot animations after optimization.',
+            color: '#B8A9C9'
+        },
+        {
+            icon: <Globe size={28} />,
+            title: 'Frammer AI \u2013 Web Platform QA',
+            company: 'Moolya',
+            description: 'Tested a web-based AI product for content generation and design workflows \u2014 covering editor functionality, AI output quality validation, user permissions, and cross-browser compatibility.',
+            strategy: ['Functional Testing', 'Cross-browser Testing', 'Regression Testing', 'Usability Testing'],
+            tools: ['JIRA', 'BrowserStack', 'Postman', 'TestRail', 'Charles Proxy'],
+            challenges: 'AI-generated outputs were non-deterministic making validation tricky; editor had complex state management with undo/redo across collaborative sessions; cross-browser rendering inconsistencies in CSS grid layouts.',
+            solution: 'Defined output validation criteria with PM team for AI features; built structured test suites in TestRail for editor state management; tested across Chrome, Safari, Firefox, and Edge using BrowserStack.',
+            results: 'Identified 8 critical editor state bugs that would have caused data loss; achieved consistent rendering across all major browsers; reduced regression cycle from 3 days to 1 day with structured test suites.',
             color: '#81B29A'
         },
         {
-            icon: <Zap size={28} />,
-            title: 'Performance & Load Testing \u2013 News Feed Platform',
-            description: 'Designed and executed performance and load testing strategy for a content-heavy news feed platform, identifying bottlenecks before a major feature launch.',
-            strategy: ['Performance Testing', 'Load Testing', 'Stress Testing', 'API Testing'],
-            tools: ['Apache JMeter', 'Charles Proxy', 'Postman', 'Mixpanel', 'Firebase'],
-            challenges: 'The application showed no issues under normal load but exhibited severe slowdowns at peak concurrent users, which was hard to reproduce locally.',
-            solution: 'Simulated 200\u20131000 concurrent users with JMeter scripts targeting news feed API endpoints; correlated performance metrics with Firebase Analytics data to identify heaviest API calls.',
-            results: 'Identified feed API becoming 4x slower beyond 500 concurrent users; provided data-driven recommendations that led to backend caching optimization; improved P95 latency by 60%.',
-            github: '#',
-            docs: '#',
+            icon: <Database size={28} />,
+            title: 'NoSQL Database & Schema Validation \u2013 BANGDB',
+            company: 'BANGDB',
+            description: 'Tested a NoSQL database product \u2014 validating JSON data storage, schema enforcement, CRUD operations via REST APIs, and data integrity across concurrent operations.',
+            strategy: ['API Testing', 'Data Integrity Testing', 'Schema Validation', 'Performance Testing'],
+            tools: ['Postman', 'Newman', 'MySQL', 'JIRA', 'Git'],
+            challenges: 'JSON schema validation had edge cases with nested objects and arrays; concurrent write operations caused data inconsistency; API responses varied based on data types stored in NoSQL vs relational mode.',
+            solution: 'Created comprehensive Postman collections with chained requests for CRUD lifecycle testing; wrote schema validation tests for 50+ JSON structures; used Newman for automated regression runs in CI pipeline.',
+            results: 'Caught a critical race condition in concurrent writes that would have corrupted production data; validated 40+ API endpoints with zero regressions in final 6 sprints.',
             color: '#F2CC8F'
         },
         {
-            icon: <Code2 size={28} />,
-            title: 'Selenium Automation Suite \u2013 Web Dashboard',
-            description: 'Developed a Selenium + Java automation framework for a B2B SaaS dashboard, focusing on critical user flows and high-regression-risk areas.',
-            strategy: ['Test Automation', 'Regression Testing', 'Smoke Testing', 'Page Object Model'],
-            tools: ['Selenium', 'Java', 'JIRA', 'Git', 'BrowserStack'],
-            challenges: 'Dynamic elements with unpredictable IDs and timing-sensitive UI interactions caused brittle test scripts with high false-positive failure rates.',
-            solution: 'Implemented Page Object Model pattern with custom wait utilities and XPath fallback strategies; used BrowserStack for cross-browser execution to eliminate local environment bias.',
-            results: '35 automated test cases covering login, dashboard, user management, and reporting flows; regression suite runs in 12 minutes vs 2 hours of manual testing; 0 false positives after framework stabilization.',
-            github: '#',
-            docs: '#',
+            icon: <Zap size={28} />,
+            title: 'CRM, Leads & Bug Tracker \u2013 Web Apps QA',
+            company: 'BANGDB',
+            description: 'End-to-end QA for three interconnected web applications \u2014 a CRM system, leads management platform with lead selling workflows, and an internal bug tracking tool.',
+            strategy: ['Functional Testing', 'Integration Testing', 'E2E Testing', 'Regression Testing'],
+            tools: ['Selenium', 'Java', 'JIRA', 'Postman', 'BrowserStack', 'Git'],
+            challenges: 'Three apps shared common APIs and data models \u2014 a bug in one app could break data flow in another; lead selling workflow had complex state transitions with approval chains; CRM had role-based access that needed testing across 5 user roles.',
+            solution: 'Built Selenium automation suite using Page Object Model for critical CRM flows; created API-level integration tests to validate data consistency across all three apps; tested role-based permissions matrix covering all user role combinations.',
+            results: '35 automated test cases cut regression time from 2 hours to 12 minutes; caught 15+ cross-app data flow bugs; zero permission escalation issues shipped to production.',
             color: '#C49A6C'
-        },
-        {
-            icon: <ShieldCheck size={28} />,
-            title: 'Mobile OS Compatibility Testing \u2013 Kutumb App',
-            description: 'Led systematic compatibility and exploratory testing across 30+ device/OS combinations for a community social platform with diverse user demographics.',
-            strategy: ['Compatibility Testing', 'Exploratory Testing', 'Usability Testing', 'Regression Testing'],
-            tools: ['BrowserStack', 'Android Studio', 'Xcode', 'ADB', 'logcat', 'Firebase'],
-            challenges: 'App rendered incorrectly on Android 11 budget devices and faced deep-link failures on specific iOS 16 builds affecting 18% of the user base.',
-            solution: 'Mapped out critical OS + device matrix using Firebase Crashlytics data to prioritize high-impact combinations; used ADB + logcat for detailed Android crash analysis; reported and tracked 12 OS-specific bugs.',
-            results: 'Prevented OS-specific crashes from reaching 200K+ affected users; improved crash-free session rate from 97.2% to 99.1%; established reusable compatibility checklist adopted by the team.',
-            github: '#',
-            docs: '#',
-            color: '#81B29A'
         }
     ];
 
@@ -180,8 +168,8 @@ const Projects = () => {
                     transition={{ duration: 0.5 }}
                 >
                     <span className="section-eyebrow">Portfolio</span>
-                    <h2 className="section-title">QA Case Studies</h2>
-                    <p className="section-desc">Real-world testing scenarios, challenges solved, and measurable quality improvements</p>
+                    <h2 className="section-title">Products I've Tested</h2>
+                    <p className="section-desc">Real products, real challenges, and the quality impact I delivered</p>
                 </motion.div>
 
                 <div className="projects-grid">

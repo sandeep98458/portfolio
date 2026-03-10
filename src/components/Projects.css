@@ -90,29 +90,15 @@
     flex-shrink: 0;
 }
 
-.project-links {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.project-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 10px;
+.project-company-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: var(--surface-2, rgba(255, 255, 255, 0.05));
+    color: var(--text-3);
     border: 1px solid var(--border);
-    color: var(--text-2) !important;
-    background: var(--surface);
-    transition: all 0.25s ease;
-}
-
-.project-links a:hover {
-    border-color: var(--indigo);
-    color: var(--indigo) !important;
-    box-shadow: 0 0 0 3px var(--glow-indigo);
-    transform: translateY(-2px);
+    letter-spacing: 0.02em;
 }
 
 .project-title {
